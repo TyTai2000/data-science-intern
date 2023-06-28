@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Model Prediction</title>
+    <style>
+        body {
+            background-image: url('/static/images/potential.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: green;
+        }
+
+        form {
+            margin-top: 300px;
+        }
+
+        label {
+            font-weight: bold;
+            color: blue;
+        }
+
+        input[type="number"] {
+            padding: 5px;
+            border: 1px solid #cccccc;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+            padding: 5px 10px;
+            background-color: green;
+            color: #ffffff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        p {
+            color: yellow;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Model Prediction</h1>
+    <form action="/predict" method="post">
+        <label for="age">Enter Age + potential:</label>
+        <input type="number" id="age" name="age" required>
+        <input type="submit" value="Predict">
+    </form>
+    {% if prediction %}
+        <p>Predicted minimum value for age + potential {{ age }}: £{{ prediction }}</p>
+    {% endif %}
+</body>
+</html>
